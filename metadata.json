@@ -1,0 +1,7 @@
+{
+  "name": "samnang borin shop - ដេប៉ូ សំណាង បូរិន",
+  "description": "Mobile POS & Warehouse Management System ពេញលេញជាភាសាខ្មែរ សម្រាប់គ្រប់គ្រងការលក់ ស្តុកផ្ទះនិងឃ្លាំង គណនីបំណុល និងស្ថិតិចំណេញ",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

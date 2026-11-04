@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08281F"/>
+      <stop offset="50%" stop-color="#0C3B2E"/>
+      <stop offset="100%" stop-color="#164E3F"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="40%" stop-color="#FFBA00"/>
+      <stop offset="80%" stop-color="#D49B00"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#FFBA00" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer Rounded Container -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  
+  <!-- Golden Border Ring -->
+  <rect x="24" y="24" width="464" height="464" rx="92" fill="none" stroke="url(#goldGrad)" stroke-width="6" opacity="0.6"/>
+  
+  <!-- Inner Subtle Hexagon / Diamond Crest -->
+  <polygon points="256,70 420,165 420,347 256,442 92,347 92,165" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.3"/>
+  
+  <!-- SB Monogram Logo -->
+  <g filter="url(#goldGlow)" text-anchor="middle" dominant-baseline="central">
+    <!-- Stylized Crown / Roof Emblem -->
+    <path d="M206,140 L256,105 L306,140 L290,146 L256,122 L222,146 Z" fill="url(#goldGrad)" />
+    
+    <!-- Monogram Letters SB -->
+    <text x="256" y="270" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="900" font-size="160" fill="url(#goldGrad)" letter-spacing="-6">SB</text>
+  </g>
+  
+  <!-- Khmer Subtitle Banner -->
+  <text x="256" y="380" font-family="'Kantumruy Pro', 'Siemreap', system-ui, sans-serif" font-weight="700" font-size="28" fill="#FFE082" text-anchor="middle" letter-spacing="2">
+    សំណាង បូរិន
+  </text>
+  <text x="256" y="415" font-family="system-ui, sans-serif" font-weight="600" font-size="16" fill="#A1E6E8" text-anchor="middle" letter-spacing="4" opacity="0.85">
+    MOBILE POS &amp; STOCK
+  </text>
+</svg>
