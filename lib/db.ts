@@ -43,7 +43,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 155,
     minStock: 25,
     image: 'https://picsum.photos/seed/angkorbeer/200/200',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-11-04T00:00:00.000Z',
   },
   {
     id: 'P002',
@@ -71,7 +71,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 113,
     minStock: 20,
     image: 'https://picsum.photos/seed/hanumanbeer/200/200',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-11-04T00:00:00.000Z',
   },
   {
     id: 'P003',
@@ -99,7 +99,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 55,
     minStock: 15,
     image: 'https://picsum.photos/seed/krudbeer/200/200',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-11-04T00:00:00.000Z',
   },
   {
     id: 'P004',
@@ -127,7 +127,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 135,
     minStock: 30,
     image: 'https://picsum.photos/seed/stingenergy/200/200',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-11-04T00:00:00.000Z',
   },
   {
     id: 'P005',
@@ -155,7 +155,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 22,
     minStock: 25, // Alert low stock
     image: 'https://picsum.photos/seed/carabaocan/200/200',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-11-04T00:00:00.000Z',
   },
   {
     id: 'P006',
@@ -183,7 +183,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 90,
     minStock: 20,
     image: 'https://picsum.photos/seed/cocacolacan/200/200',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-11-04T00:00:00.000Z',
   },
   {
     id: 'P007',
@@ -211,7 +211,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 250,
     minStock: 40,
     image: 'https://picsum.photos/seed/vitalwater/200/200',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-11-04T00:00:00.000Z',
   },
   {
     id: 'P008',
@@ -239,7 +239,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     stock: 24,
     minStock: 10,
     image: 'https://picsum.photos/seed/555cigarette/200/200',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-11-04T00:00:00.000Z',
   },
 ];
 
@@ -304,7 +304,7 @@ export const INITIAL_PARTNERS: Partner[] = [
 export const INITIAL_EXPENSES: Expense[] = [
   {
     id: 'EXP-001',
-    date: new Date(Date.now() - 86400000 * 2).toISOString().slice(0, 10),
+    date: '2026-11-02',
     category: 'ថ្លៃដឹកជញ្ជូន',
     title: 'ថ្លៃសាំងឡានដឹកទំនិញចូលស្តុក',
     amountUSD: 25.00,
@@ -314,7 +314,7 @@ export const INITIAL_EXPENSES: Expense[] = [
   },
   {
     id: 'EXP-002',
-    date: new Date(Date.now() - 86400000).toISOString().slice(0, 10),
+    date: '2026-11-03',
     category: 'ទឹកភ្លើង/Net',
     title: 'ថ្លៃភ្លើងហាង & ឃ្លាំងត្រជាក់',
     amountUSD: 60.00,
@@ -323,7 +323,7 @@ export const INITIAL_EXPENSES: Expense[] = [
   },
   {
     id: 'EXP-003',
-    date: new Date().toISOString().slice(0, 10),
+    date: '2026-11-04',
     category: 'អាហារ',
     title: 'បាយថ្ងៃត្រង់កម្មករប៉ះស្តុក ៣នាក់',
     amountUSD: 12.00,
@@ -336,7 +336,7 @@ export const INITIAL_INVOICES: SaleInvoice[] = [
   {
     id: 'INV-20261103-001',
     invoiceNo: 'SB-00101',
-    date: new Date(Date.now() - 86400000 * 2).toISOString(),
+    date: '2026-11-02T10:30:00.000Z',
     partnerId: 'PART-002',
     partnerName: 'តូបមីង សុខា ទួលទំពូង',
     partnerPhone: '098 776 655',
@@ -391,7 +391,7 @@ export const INITIAL_INVOICES: SaleInvoice[] = [
   {
     id: 'INV-20261104-002',
     invoiceNo: 'SB-00102',
-    date: new Date(Date.now() - 86400000).toISOString(),
+    date: '2026-11-03T14:15:00.000Z',
     partnerId: 'PART-001',
     partnerName: 'ម៉ាត ផល្លា ផ្សារដើមថ្កូវ',
     partnerPhone: '012 334 455',
@@ -439,12 +439,12 @@ export const INITIAL_INVOICES: SaleInvoice[] = [
     paidRiel: 645750,
     dueUSD: 100.00,
     dueRiel: 410000,
-    dueDate: new Date(Date.now() + 86400000 * 7).toISOString().slice(0, 10),
+    dueDate: '2026-11-10',
     debtStatus: 'partial',
     repayments: [
       {
         id: 'rep_1',
-        date: new Date(Date.now() - 3600000 * 4).toISOString(),
+        date: '2026-11-03T16:00:00.000Z',
         amountUSD: 57.50,
         amountKHR: 235750,
         note: 'កក់ប្រាក់លើកទី១',
@@ -457,7 +457,7 @@ export const INITIAL_INVOICES: SaleInvoice[] = [
 export const INITIAL_LOGS: StockMovementLog[] = [
   {
     id: 'LOG-001',
-    timestamp: new Date(Date.now() - 86400000 * 3).toISOString(),
+    timestamp: '2026-11-01T08:00:00.000Z',
     productId: 'P001',
     productName: 'ស្រាបៀរ អង្គរ (Angkor Beer Cans)',
     type: 'purchase',
@@ -470,7 +470,7 @@ export const INITIAL_LOGS: StockMovementLog[] = [
   },
   {
     id: 'LOG-002',
-    timestamp: new Date(Date.now() - 86400000 * 2).toISOString(),
+    timestamp: '2026-11-02T09:30:00.000Z',
     productId: 'P001',
     productName: 'ស្រាបៀរ អង្គរ (Angkor Beer Cans)',
     type: 'transfer',

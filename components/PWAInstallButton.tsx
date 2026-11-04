@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useSyncExternalStore } from 'react';
 import { Smartphone, X } from 'lucide-react';
 
 interface BeforeInstallPromptEvent extends Event {
@@ -8,20 +8,47 @@ interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
 }
 
+function subscribeStandalone(callback: () => void) {
+  if (typeof window === 'undefined') return () => {};
+  const mql = window.matchMedia('(display-mode: standalone)');
+  mql.addEventListener('change', callback);
+  window.addEventListener('appinstalled', callback);
+  return () => {
+    mql.removeEventListener('change', callback);
+    window.removeEventListener('appinstalled', callback);
+  };
+}
+
+function getStandaloneSnapshot(): boolean {
+  if (typeof window === 'undefined') return false;
+  return (
+    window.matchMedia('(display-mode: standalone)').matches ||
+    (window.navigator as unknown as { standalone?: boolean }).standalone === true
+  );
+}
+
+function getStandaloneServerSnapshot(): boolean {
+  return false;
+}
+
+function subscribeNoop() {
+  return () => {};
+}
+
+function getIOSSnapshot(): boolean {
+  if (typeof window === 'undefined') return false;
+  const ua = window.navigator.userAgent.toLowerCase();
+  return /iphone|ipad|ipod/.test(ua);
+}
+
 export const PWAInstallButton: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
-  const [isInstalled, setIsInstalled] = useState<boolean>(() => {
-    if (typeof window === 'undefined') return false;
-    return (
-      window.matchMedia('(display-mode: standalone)').matches ||
-      (window.navigator as unknown as { standalone?: boolean }).standalone === true
-    );
-  });
-  const [isIOS, setIsIOS] = useState<boolean>(() => {
-    if (typeof window === 'undefined') return false;
-    const ua = window.navigator.userAgent.toLowerCase();
-    return /iphone|ipad|ipod/.test(ua);
-  });
+  const isInstalled = useSyncExternalStore(
+    subscribeStandalone,
+    getStandaloneSnapshot,
+    getStandaloneServerSnapshot
+  );
+  const isIOS = useSyncExternalStore(subscribeNoop, getIOSSnapshot, () => false);
   const [showIOSModal, setShowIOSModal] = useState(false);
 
   useEffect(() => {
@@ -30,17 +57,10 @@ export const PWAInstallButton: React.FC = () => {
       setDeferredPrompt(e as BeforeInstallPromptEvent);
     };
 
-    const handleAppInstalled = () => {
-      setIsInstalled(true);
-      setDeferredPrompt(null);
-    };
-
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    window.addEventListener('appinstalled', handleAppInstalled);
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      window.removeEventListener('appinstalled', handleAppInstalled);
     };
   }, []);
 
@@ -49,7 +69,6 @@ export const PWAInstallButton: React.FC = () => {
       await deferredPrompt.prompt();
       const choice = await deferredPrompt.userChoice;
       if (choice.outcome === 'accepted') {
-        setIsInstalled(true);
         setDeferredPrompt(null);
       }
     } else if (isIOS) {
